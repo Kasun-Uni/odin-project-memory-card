@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import CardGrid from "./CardGrid.jsx";
+import Scoreboard from "./Scoreboard.jsx";
 import "../styles/App.css";
 
 function shuffleCards(cardsArray) {
@@ -14,6 +15,7 @@ function shuffleCards(cardsArray) {
 function App() {
   const [cards, setCards] = useState([]);
   const [score, setScore] = useState(0);
+  const [bestScore, setBestScore] = useState(0);
   const [clickedIds, setClickedIds] = useState([]);
 
   useEffect(() => {
@@ -47,13 +49,16 @@ function App() {
 
   function handleCardClick(id) {
     if (clickedIds.includes(id)) {
-      // Repeat click -> reset
       setScore(0);
       setClickedIds([]);
     } else {
-      // New card -> score up
-      setScore((prevScore) => prevScore + 1);
+      const newScore = score + 1;
+      setScore(newScore);
       setClickedIds((prevIds) => [...prevIds, id]);
+
+      if (newScore > bestScore) {
+        setBestScore(newScore);
+      }
     }
 
     setCards((prevCards) => shuffleCards(prevCards));
@@ -62,7 +67,7 @@ function App() {
   return (
     <div className="app">
       <h1>Memory Card Game</h1>
-      <p>Score: {score}</p>
+      <Scoreboard score={score} bestScore={bestScore} />
       <CardGrid cards={cards} onCardClick={handleCardClick} />
     </div>
   );
