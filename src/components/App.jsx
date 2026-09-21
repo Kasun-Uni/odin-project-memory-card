@@ -13,6 +13,8 @@ function shuffleCards(cardsArray) {
 
 function App() {
   const [cards, setCards] = useState([]);
+  const [score, setScore] = useState(0);
+  const [clickedIds, setClickedIds] = useState([]);
 
   useEffect(() => {
     async function fetchPokemon() {
@@ -44,13 +46,23 @@ function App() {
   }, []);
 
   function handleCardClick(id) {
-    console.log("Clicked card id:", id);
+    if (clickedIds.includes(id)) {
+      // Repeat click -> reset
+      setScore(0);
+      setClickedIds([]);
+    } else {
+      // New card -> score up
+      setScore((prevScore) => prevScore + 1);
+      setClickedIds((prevIds) => [...prevIds, id]);
+    }
+
     setCards((prevCards) => shuffleCards(prevCards));
   }
 
   return (
     <div className="app">
       <h1>Memory Card Game</h1>
+      <p>Score: {score}</p>
       <CardGrid cards={cards} onCardClick={handleCardClick} />
     </div>
   );
