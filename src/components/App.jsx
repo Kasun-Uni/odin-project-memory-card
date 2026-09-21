@@ -67,6 +67,7 @@ function App() {
   return (
     <div className="app">
       <h1>Memory Card Game</h1>
+      <p className="subtitle">Click a card, but don't click it twice!</p>
       <Scoreboard score={score} bestScore={bestScore} />
       <CardGrid cards={cards} onCardClick={handleCardClick} />
     </div>
