@@ -1,0 +1,39 @@
+{
+  "name": "odin-project-memory-card",
+  "version": "1.0.0",
+  "description": "��#\u0000 \u0000o\u0000d\u0000i\u0000n\u0000-\u0000p\u0000r\u0000o\u0000j\u0000e\u0000c\u0000t\u0000-\u0000m\u0000e\u0000m\u0000o\u0000r\u0000y\u0000-\u0000c\u0000a\u0000r\u0000d\u0000\r\u0000 \u0000",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "webpack serve",
+    "build": "webpack"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Kasun-Uni/odin-project-memory-card.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "bugs": {
+    "url": "https://github.com/Kasun-Uni/odin-project-memory-card/issues"
+  },
+  "homepage": "https://github.com/Kasun-Uni/odin-project-memory-card#readme",
+  "dependencies": {
+    "react": "^19.3.0",
+    "react-dom": "^19.3.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^8.0.6",
+    "@babel/preset-env": "^8.0.6",
+    "@babel/preset-react": "^8.0.1",
+    "babel-loader": "^10.1.1",
+    "css-loader": "^7.1.5",
+    "html-webpack-plugin": "^5.6.8",
+    "style-loader": "^4.0.0",
+    "webpack": "^5.111.1",
+    "webpack-cli": "^7.2.3",
+    "webpack-dev-server": "^6.0.0"
+  }
+}
