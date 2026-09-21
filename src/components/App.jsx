@@ -1,4 +1,6 @@
 import { useState, useEffect } from "react";
+import CardGrid from "./CardGrid.jsx";
+import "../styles/App.css";
 
 function App() {
   const [cards, setCards] = useState([]);
@@ -32,9 +34,16 @@ function App() {
     fetchPokemon();
   }, []);
 
-  console.log(cards);
+  function handleCardClick(id) {
+    console.log("Clicked card id:", id);
+  }
 
-  return <h1>Memory Card Game</h1>;
+  return (
+    <div className="app">
+      <h1>Memory Card Game</h1>
+      <CardGrid cards={cards} onCardClick={handleCardClick} />
+    </div>
+  );
 }
 
 export default App;
